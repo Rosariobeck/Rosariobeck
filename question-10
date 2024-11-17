@@ -1,0 +1,41 @@
+/*Take a string input from the user and a character to search for. Write a
+ method to count the occurrences of the character in the string and return
+ the count. Then display the count to the user.*/
+
+import java.util.Scanner;
+
+public class CharCount {
+    
+    // Method to count occurrences of a character in a string
+    public static int countCharOccurrences(String inputString, char searchChar) {
+        int count = 0;
+        
+        // Loop through the string and count occurrences of the character
+        for (int i = 0; i < inputString.length(); i++) {
+            if (inputString.charAt(i) == searchChar) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static void main(String[] args) {
+        // Create a Scanner object to take user input
+        Scanner scanner = new Scanner(System.in);
+        
+        // Take the string input from the user
+        System.out.print("Enter a string: ");
+        String inputString = scanner.nextLine();
+        
+        // Take the character input from the user
+        System.out.print("Enter the character to search for: ");
+        char searchChar = scanner.next().charAt(0);
+        
+        // Call the method to count occurrences and display the result
+        int count = countCharOccurrences(inputString, searchChar);
+        System.out.println("The character '" + searchChar + "' appears " + count + " times in the string.");
+        
+        // Close the scanner to prevent resource leak
+        scanner.close();
+    }
+}
