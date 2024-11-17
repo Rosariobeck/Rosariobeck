@@ -1,0 +1,46 @@
+/*
+ Write a program that takes an integer input n and prints an inverted
+ triangle of numbers. For example, if n = 5, the output should be:
+*/
+
+import java.util.Scanner;
+
+public class InvertedTriangle {
+    
+    // Method to print inverted triangle of numbers
+    public static void printInvertedTriangle(int n) {
+        // Outer loop for each row
+        for (int i = n; i >= 1; i--) {
+            // Inner loop to print numbers in each row
+            for (int j = i; j >= 1; j--) {
+                System.out.print(j + " "); // Print the current number
+            }
+            System.out.println(); // Move to the next line after each row
+        }
+    }
+
+    public static void main(String[] args) {
+        // Create a scanner object to take input
+        Scanner scanner = new Scanner(System.in);
+        
+        // Prompt the user for input
+        System.out.print("Enter the number of rows (n): ");
+        int n = scanner.nextInt(); // Read the integer input for rows
+        
+        // Call the method to print the inverted triangle
+        printInvertedTriangle(n);
+        
+        // Close the scanner to avoid resource leak
+        scanner.close();
+    }
+}
+
+/* OUTPUT 
+Enter the number of rows (n): 6
+6 5 4 3 2 1 
+5 4 3 2 1 
+4 3 2 1 
+3 2 1 
+2 1 
+1 
+*/
