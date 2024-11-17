@@ -1,0 +1,62 @@
+/*
+ Write a program that takes an integer input n and stores the first n terms
+ of the Fibonacci sequence in an array. Then, print the array. For example,
+ if the user enters 7, store and display the first 7 terms of the Fibonacci
+ sequence: 0, 1, 1, 2, 3, 5, 8.
+*/
+
+import java.util.Scanner;
+
+public class FibonacciSequence {
+
+    // Method to generate and return the first 'n' Fibonacci numbers
+    public static int[] generateFibonacci(int n) {
+        // Create an array to store the Fibonacci sequence
+        int[] fibonacci = new int[n];
+
+        // Initialize the first two Fibonacci numbers
+        if (n >= 1) fibonacci[0] = 0;  // First Fibonacci number
+        if (n >= 2) fibonacci[1] = 1;  // Second Fibonacci number
+
+        // Generate the remaining Fibonacci numbers
+        for (int i = 2; i < n; i++) {
+            fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];
+        }
+
+        return fibonacci;  // Return the array with Fibonacci numbers
+    }
+
+    public static void main(String[] args) {
+        // Create a scanner object to take input from the user
+        Scanner scanner = new Scanner(System.in);
+        
+        // Prompt the user for the number of terms
+        System.out.print("Enter the number of terms in the Fibonacci sequence: ");
+        int n = scanner.nextInt();  // Read the number of terms
+
+        // Handle case for n <= 0 (invalid input)
+        if (n <= 0) {
+            System.out.println("Please enter a positive integer greater than 0.");
+            return;  // Exit the program if invalid input
+        }
+
+        // Generate the Fibonacci sequence
+        int[] fibonacciSequence = generateFibonacci(n);
+
+        // Print the Fibonacci sequence
+        System.out.print("The first " + n + " terms of the Fibonacci sequence are: ");
+        for (int i = 0; i < n; i++) {
+            System.out.print(fibonacciSequence[i] + " ");
+        }
+        System.out.println();  // Print a newline at the end
+
+        // Close the scanner to prevent resource leak
+        scanner.close();
+    }
+}
+
+
+/* OUTPUT 
+Enter the number of terms in the Fibonacci sequence: 5
+The first 5 terms of the Fibonacci sequence are: 0 1 1 2 3
+*/
