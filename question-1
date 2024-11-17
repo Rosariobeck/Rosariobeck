@@ -1,0 +1,60 @@
+/*
+ Write a Java program that takes an integer input from the user and
+ calculates the factorial of the number. Then, write a method to calculate
+ the sum of the digits of this factorial. For example, if the user enters 5,
+ calculate 5! (120) and then find the sum of its digits (1 + 2 + 0 = 3).
+*/
+
+import java.util.Scanner;
+
+public class FactorialAndSumOfDigits {
+
+    // Method to calculate the factorial of a number
+    public static long calculateFactorial(int num) {
+        long factorial = 1;
+        for (int i = 1; i <= num; i++) {
+            factorial *= i;
+        }
+        return factorial;
+    }
+
+    // Method to calculate the sum of digits of a number
+    public static int sumOfDigits(long number) {
+        int sum = 0;
+        while (number > 0) {
+            sum += number % 10;  // Add the last digit to sum
+            number /= 10;         // Remove the last digit
+        }
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        // Create a scanner object to take input from the user
+        Scanner scanner = new Scanner(System.in);
+        
+        // Input from the user
+        System.out.print("Enter a number: ");
+        int num = scanner.nextInt();
+        
+        // Calculate the factorial of the number
+        long factorial = calculateFactorial(num);
+        
+        // Print the factorial
+        System.out.println("Factorial of " + num + " is: " + factorial);
+        
+        // Calculate the sum of digits of the factorial
+        int sum = sumOfDigits(factorial);
+        
+        // Print the sum of digits
+        System.out.println("Sum of digits of " + factorial + " is: " + sum);
+        
+        // Close the scanner
+        scanner.close();
+    }
+}
+
+/* OUTPUT 
+  Enter a number: 7
+  Factorial of 7 is: 5040
+Sum of digits of 5040 is: 9
+*/
