@@ -1,1 +1,49 @@
+/*
+ Write a program that takes an integer input n and prints a pyramid of
+ numbers up to n rows, where each row has an increasing count of
+ numbers. For example, if n = 4, the output should be:
+*/
+
+import java.util.Scanner;
+
+public class NumberPyramid {
+
+    // Method to print pyramid of numbers
+    public static void printPyramid(int n) {
+        // Outer loop for each row
+        for (int i = 1; i <= n; i++) {
+            // Inner loop to print numbers for the current row
+            for (int j = 1; j <= i; j++) {
+                System.out.print(j + " "); // Print the current number
+            }
+            // Move to the next line after each row
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+        // Create a scanner object to take input
+        Scanner scanner = new Scanner(System.in);
+        
+        // Prompt the user for input
+        System.out.print("Enter the number of rows (n): ");
+        int n = scanner.nextInt(); // Read the integer input for rows
+        
+        // Call the method to print the number pyramid
+        printPyramid(n);
+        
+        // Close the scanner to avoid resource leak
+        scanner.close();
+    }
+}
+
+/* OUTPUT 
+
+Enter the number of rows (n): 5
+1 
+1 2 
+1 2 3 
+1 2 3 4 
+1 2 3 4 5 
+*/
 
