@@ -1,6 +1,8 @@
-/*Take a string input from the user and a character to search for. Write a
+/*
+Take a string input from the user and a character to search for. Write a
  method to count the occurrences of the character in the string and return
- the count. Then display the count to the user.*/
+ the count. Then display the count to the user.
+*/
 
 import java.util.Scanner;
 
@@ -39,3 +41,9 @@ public class CharCount {
         scanner.close();
     }
 }
+/* OUTPUT
+Enter a string: the sun is bright
+Enter the character to search for: s
+The character 's' appears 2 times in the string.
+*/
+
