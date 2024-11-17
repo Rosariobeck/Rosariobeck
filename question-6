@@ -1,0 +1,83 @@
+/*
+Write a program that accepts n integers from the user (where n is also
+ provided by the user). Store the numbers in an array and write a method
+ to find and display the second largest number in the array.
+*/
+
+
+import java.util.Scanner;
+
+public class SecondLargestNumber {
+
+    // Method to find and return the second largest number
+    public static int findSecondLargest(int[] numbers, int n) {
+        // Handle case when there are less than two numbers
+        if (n < 2) {
+            System.out.println("Array should contain at least two numbers to find the second largest.");
+            return -1; // Return -1 as an indicator of invalid input
+        }
+
+        // Initialize the largest and second largest variables
+        int largest = Integer.MIN_VALUE;
+        int secondLargest = Integer.MIN_VALUE;
+
+        // Traverse the array to find the largest and second largest numbers
+        for (int i = 0; i < n; i++) {
+            if (numbers[i] > largest) {
+                secondLargest = largest;  // Update second largest
+                largest = numbers[i];     // Update largest
+            } else if (numbers[i] > secondLargest && numbers[i] != largest) {
+                secondLargest = numbers[i];  // Update second largest
+            }
+        }
+
+        // Return the second largest number
+        return secondLargest;
+    }
+
+    public static void main(String[] args) {
+        // Create a Scanner object to take input from the user
+        Scanner scanner = new Scanner(System.in);
+        
+        // Prompt user to enter the number of integers (n)
+        System.out.print("Enter the number of integers: ");
+        int n = scanner.nextInt(); // Read the number of integers
+        
+        // Handle case for invalid input
+        if (n < 2) {
+            System.out.println("Please enter at least two integers.");
+            return;  // Exit the program if less than two numbers are entered
+        }
+
+        // Create an array to store the integers
+        int[] numbers = new int[n];
+
+        // Prompt user to enter the integers
+        System.out.println("Enter the integers:");
+        for (int i = 0; i < n; i++) {
+            numbers[i] = scanner.nextInt();  // Read each integer
+        }
+
+        // Call the method to find the second largest number
+        int secondLargest = findSecondLargest(numbers, n);
+
+        // If the second largest number is valid, display it
+        if (secondLargest != -1) {
+            System.out.println("The second largest number is: " + secondLargest);
+        }
+
+        // Close the scanner to avoid resource leak
+        scanner.close();
+    }
+}
+
+/* OUTPUT 
+Enter the number of integers: 5
+Enter the integers:
+12
+35
+1
+10
+34
+The second largest number is: 34
+*/
