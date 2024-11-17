@@ -1,0 +1,102 @@
+/*
+Build a menu-driven calculator that performs addition, subtraction,
+ multiplication, or division based on the user's choice. Use if-else
+ statements to determine the operation. 
+Keep prompting the user to perform another operation until they choose
+ to exit.
+*/
+
+import java.util.Scanner;
+
+public class MenuDrivenCalculator {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int choice;
+
+        do {
+            // Display the menu
+            System.out.println("Menu:");
+            System.out.println("1. Add");
+            System.out.println("2. Subtract");
+            System.out.println("3. Multiply");
+            System.out.println("4. Divide");
+            System.out.println("5. Exit");
+            System.out.print("Enter your choice (1-5): ");
+            
+            // Read the user's choice
+            choice = scanner.nextInt();
+            
+            // Declare variables for user input
+            double num1, num2, result = 0;
+            
+            // Switch case based on the user's choice
+            switch (choice) {
+                case 1:  // Addition
+                    System.out.print("Enter the first number: ");
+                    num1 = scanner.nextDouble();
+                    System.out.print("Enter the second number: ");
+                    num2 = scanner.nextDouble();
+                    result = num1 + num2;
+                    System.out.println("Result: " + num1 + " + " + num2 + " = " + result);
+                    break;
+
+                case 2:  // Subtraction
+                    System.out.print("Enter the first number: ");
+                    num1 = scanner.nextDouble();
+                    System.out.print("Enter the second number: ");
+                    num2 = scanner.nextDouble();
+                    result = num1 - num2;
+                    System.out.println("Result: " + num1 + " - " + num2 + " = " + result);
+                    break;
+
+                case 3:  // Multiplication
+                    System.out.print("Enter the first number: ");
+                    num1 = scanner.nextDouble();
+                    System.out.print("Enter the second number: ");
+                    num2 = scanner.nextDouble();
+                    result = num1 * num2;
+                    System.out.println("Result: " + num1 + " * " + num2 + " = " + result);
+                    break;
+
+                case 4:  // Division
+                    System.out.print("Enter the first number: ");
+                    num1 = scanner.nextDouble();
+                    System.out.print("Enter the second number: ");
+                    num2 = scanner.nextDouble();
+                    if (num2 != 0) {
+                        result = num1 / num2;
+                        System.out.println("Result: " + num1 + " / " + num2 + " = " + result);
+                    } else {
+                        System.out.println("Error: Division by zero is not allowed.");
+                    }
+                    break;
+
+                case 5:  // Exit
+                    System.out.println("Exiting the calculator. Goodbye!");
+                    break;
+
+                default:  // Invalid choice
+                    System.out.println("Invalid choice. Please select a valid option.");
+                    break;
+            }
+            
+        } while (choice != 5);  // Continue looping until the user chooses to exit
+
+        // Close the scanner to avoid resource leak
+        scanner.close();
+    }
+}
+
+/* OUTPUT 
+Menu:
+1. Add
+2. Subtract
+3. Multiply
+4. Divide
+5. Exit
+Enter your choice (1-5): 3
+Enter the first number: 10
+Enter the second number: 5
+Result: 10.0 * 5.0 = 50.0
+*/
